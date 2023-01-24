@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -18,7 +18,7 @@ const ExpenseForm = () => {
         //     ...userInput
         //     ,enteredTitle : event.target.value
         // })
-        // 위의 방법보다 이렇게 해야한다 이유는 이전 state 를 가져오는 방법이 위의 방법보다 안전함으로.. 
+        // 위의 방법보다 이렇게 해야한다 이유는 가장 최신의 이전 state 를 가져오는 방법이 위의 방법보다 안전함으로.. 
         // 하지만 이렇게 하는것보다 개별적으로 가져오는것이 더좋다?.
         // setUserInput((prevState)=>{
         //     return {...prevState,enteredTitle : event.target.value}
@@ -46,7 +46,7 @@ const ExpenseForm = () => {
             amount: enteredAmount,
             date: new Date(enteredDate)
         };
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
