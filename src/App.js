@@ -33,6 +33,11 @@ const App = () => {
       return [expense, ...prevExpense ]; 
     });
   };
+  // const setYearOfExpenses = (expense) => {
+  //   setExpenses(prevExpense=>{
+  //     return expense;
+  //   });
+  // };
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
